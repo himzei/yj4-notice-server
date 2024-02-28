@@ -1,14 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
+import List from "./List";
+import Write from "./Write";
+import Detail from "./Detail";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <List />,
+  },
+  {
+    path: "/write",
+    element: <Write />,
+  },
+  {
+    path: "/:id",
+    element: <Detail />,
   },
 ]);
 
