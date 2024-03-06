@@ -1,17 +1,33 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import List from "./List";
 import Write from "./Write";
 import Detail from "./Detail";
 import Update from "./Update";
+import SignUp from "./routes/SignUp";
+import LogIn from "./routes/LogIn";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <List />,
+  },
+  {
+    path: "/users",
+    element: <Outlet />,
+    children: [
+      {
+        path: "signup",
+        element: <SignUp />,
+      },
+      {
+        path: "login",
+        element: <LogIn />,
+      },
+    ],
   },
   {
     path: "/write",
