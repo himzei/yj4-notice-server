@@ -67,3 +67,19 @@ export async function apiPostNoticeDelete(id) {
     console.log(error);
   }
 }
+
+// 회원가입하기
+export async function apiPostRegister(data) {
+  console.log(data);
+  try {
+    return await fetch(`${BASE_URL}/users/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }).then((res) => res.json());
+  } catch (error) {
+    console.log(error);
+  }
+}
